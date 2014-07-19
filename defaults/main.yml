@@ -1,7 +1,7 @@
 ---
 ssh:
   accept_env: 'LANG LC_*'
-  allow_groups: admin
+  allow_groups: 'admin'
   authorized_keys_file: '%h/.ssh/authorized_keys'
   challenge_response_authentication: 'no'
   client_alive_count_max: 0
@@ -11,7 +11,7 @@ ssh:
   ignore_rhosts: 'yes'
   key_regeneration_interval: 3600
   login_grace_time: 10
-  log_level: INFO
+  log_level: 'INFO'
   password_authentication: 'no'
   permit_empty_passwords: 'no'
   permit_root_login: 'no'
@@ -24,7 +24,7 @@ ssh:
   rsa_authentication: 'yes'
   server_key_bits: 1024
   strict_modes: 'yes'
-  sys_log_facility: AUTH
+  sys_log_facility: 'AUTH'
   tcp_keep_alive: 'yes'
   use_pam: 'yes'
   use_privilege_separation: 'yes'
