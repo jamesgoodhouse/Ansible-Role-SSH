@@ -1,25 +1,25 @@
 ---
 ssh:
   authorized_keys_file: '%h/.ssh/authorized_keys'
-  challenge_response_authentication: no
+  challenge_response_authentication: 'no'
   client_alive_count_max: 0
   client_alive_interval: 300
-  debian_banner: no
-  host_based_authentication: no
-  ignore_rhosts: yes
+  debian_banner: 'no'
+  host_based_authentication: 'no'
+  ignore_rhosts: 'yes'
   login_grace_time: 10
   log_level: INFO
-  password_authentication: no
-  permit_empty_passwords: no
-  permit_root_login: no
+  password_authentication: 'no'
+  permit_empty_passwords: 'no'
+  permit_root_login: 'no'
   port: 22
-  print_last_log: yes
-  print_motd: no
+  print_last_log: 'yes'
+  print_motd: 'no'
   protocol: 2
-  pubkey_authentication: yes
-  rsa_authentication: yes
-  strict_modes: yes
-  tcp_keep_alive: yes
-  use_pam: yes
-  use_privilege_separation: yes
-  x11_forwarding: no
+  pubkey_authentication: 'yes'
+  rsa_authentication: 'yes'
+  strict_modes: 'yes'
+  tcp_keep_alive: 'yes'
+  use_pam: 'yes'
+  use_privilege_separation: 'yes'
+  x11_forwarding: 'no'
