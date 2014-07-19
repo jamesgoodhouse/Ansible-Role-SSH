@@ -1,30 +1,30 @@
 # {{ ansible_managed }}
 
 AllowUsers {% for key,value in users.iteritems() %}{% if value.allow_ssh %}{{ value.username }}{% endif %}{% endfor %}{% if vagrant is defined and vagrant == true %} vagrant{% endif %} 
-AuthorizedKeysFile %h/.ssh/authorized_keys
-ChallengeResponseAuthentication no
-ClientAliveCountMax 0
-ClientAliveInterval 300
-DebianBanner no
-HostbasedAuthentication no
+AuthorizedKeysFile {{ ssh['authorized_keys_file'] }}
+ChallengeResponseAuthentication {{ ssh['challenge_response_authentication'] }}
+ClientAliveCountMax {{ ssh['client_alive_count_max'] }}
+ClientAliveInterval {{ ssh['client_alive_interval'] }}
+DebianBanner {{ ssh['debian_banner'] }}
+HostbasedAuthentication {{ ssh['host_based_authentication'] }}
 HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
-IgnoreRhosts yes
-LoginGraceTime 10
-LogLevel INFO
-PasswordAuthentication no
-PermitEmptyPasswords no
-PermitRootLogin no
-Port 22
-PrintLastLog yes
-PrintMotd no
-Protocol 2
-PubkeyAuthentication yes
-RSAAuthentication yes
-StrictModes yes
-TCPKeepAlive yes
-UsePAM yes
-UsePrivilegeSeparation yes
-X11Forwarding no
+IgnoreRhosts {{ ssh['ignore_rhosts'] }}
+LoginGraceTime {{ ssh['login_grace_time'] }}
+LogLevel {{ ssh['log_level'] }}
+PasswordAuthentication {{ ssh['password_authentication'] }}
+PermitEmptyPasswords {{ ssh['permit_empty_passwords'] }}
+PermitRootLogin {{ ssh['permit_root_login'] }}
+Port {{ ssh['port'] }}
+PrintLastLog {{ ssh['print_last_log'] }}
+PrintMotd {{ ssh['print_motd'] }}
+Protocol {{ ssh['protocol'] }}
+PubkeyAuthentication {{ ssh['pubkey_authentication'] }}
+RSAAuthentication {{ ssh['rsa_authentication'] }}
+StrictModes {{ ssh['strict_modes'] }}
+TCPKeepAlive {{ ssh['tcp_keep_alive'] }}
+UsePAM {{ ssh['use_pam'] }}
+UsePrivilegeSeparation {{ ssh['use_privilege_separation'] }}
+X11Forwarding {{ ssh['x11_forwarding'] }}
