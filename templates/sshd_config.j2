@@ -1,6 +1,7 @@
 # {{ ansible_managed }}
 
-AllowUsers {% for key,value in users.iteritems() %}{% if value.allow_ssh %}{{ value.username }}{% endif %}{% endfor %}{% if vagrant is defined and vagrant == true %} vagrant{% endif %} 
+AcceptEnv {{ ssh['accept_env'] }}
+AllowGroups {{ ssh['allow_groups'] }}
 AuthorizedKeysFile {{ ssh['authorized_keys_file'] }}
 ChallengeResponseAuthentication {{ ssh['challenge_response_authentication'] }}
 ClientAliveCountMax {{ ssh['client_alive_count_max'] }}
@@ -12,6 +13,7 @@ HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
 IgnoreRhosts {{ ssh['ignore_rhosts'] }}
+KeyRegenerationInterval {{ ssh['key_regeneration_interval'] }}
 LoginGraceTime {{ ssh['login_grace_time'] }}
 LogLevel {{ ssh['log_level'] }}
 PasswordAuthentication {{ ssh['password_authentication'] }}
@@ -21,10 +23,15 @@ Port {{ ssh['port'] }}
 PrintLastLog {{ ssh['print_last_log'] }}
 PrintMotd {{ ssh['print_motd'] }}
 Protocol {{ ssh['protocol'] }}
-PubkeyAuthentication {{ ssh['pubkey_authentication'] }}
+PubkeyAuthentication {{ ssh['pub_key_authentication'] }}
+RHostsRSAAuthentication {{ ssh['rhosts_rsa_authentication'] }}
 RSAAuthentication {{ ssh['rsa_authentication'] }}
+ServerKeyBits {{ ssh['server_key_bits'] }}
 StrictModes {{ ssh['strict_modes'] }}
+Subsystem sftp /usr/lib/openssh/sftp-server
+SysLogFacility {{ ssh['sys_log_facility'] }}
 TCPKeepAlive {{ ssh['tcp_keep_alive'] }}
 UsePAM {{ ssh['use_pam'] }}
 UsePrivilegeSeparation {{ ssh['use_privilege_separation'] }}
 X11Forwarding {{ ssh['x11_forwarding'] }}
+X11DisplayOffset {{ ssh['x11_display_offset'] }}
